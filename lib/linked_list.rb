@@ -28,11 +28,12 @@ class LinkedList
         if @families.count == 1
             "The #{@head.surname} family."
         else 
+            family_introduction = "The #{@head.surname} family"
             @families[1..-1].each do |family|
-                family_introduction = "followed by the #{family} family"
-                "The #{@head.surname} family," + family_introduction
+                appended_introduction= "followed by the #{family} family"
+                family_introduction = family_introduction + ", " + appended_introduction
             end 
-
+            family_introduction
         end 
     end
 
