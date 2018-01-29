@@ -7,15 +7,16 @@ class LinkedList
     def initialize(head = nil)
         @head = head
         @counter = 0
+        @families = []
     end
 
     def append(name)
         @counter += 1
+        @families << name
         if @head == nil
             @head = Node.new(name)
         else 
             @head.next_node = Node.new(name)
-            # require 'pry'; binding.pry
         end 
     end
 
@@ -24,10 +25,16 @@ class LinkedList
     end
 
     def to_string
-        if @counter == 1
+        if @families.count == 1
             "The #{@head.surname} family."
-        else @counter == 2
-            "The #{@head.surname} family, followed by the #{@head.next_node.surname} family"
+        else 
+            @families[1..-1].each do |family|
+                family_introduction = "followed by the #{family} family"
+                "The #{@head.surname} family," + family_introduction
+            end 
+
         end 
     end
+
+    # def 
 end
