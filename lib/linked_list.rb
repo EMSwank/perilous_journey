@@ -15,6 +15,7 @@ class LinkedList
             @head = Node.new(name)
         else 
             @head.next_node == Node.new(name)
+            require 'pry'; binding.pry
         end 
     end
 
@@ -23,10 +24,10 @@ class LinkedList
     end
 
     def to_string
-    #     if @counter == 1
-            "The #{@surname} family."
-    #     else @counter >= 2
-    #         "The #{append(name)}, followed by the #{next_node} family."
-    #     end 
+        if @counter == 1
+            "The #{@head.surname} family."
+        else @counter == 2
+            "The #{@head.surname}, followed by the #{@head.next_node.surname} family."
+        end 
     end
 end
