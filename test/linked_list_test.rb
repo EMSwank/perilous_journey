@@ -56,7 +56,6 @@ class LinkedListTest < Minitest::Test
         list = LinkedList.new
         list.append("Rhodes")
         list.append("Hardy")
-
         assert_equal "The Rhodes family, followed by the Hardy family", list.to_string
     end
 end

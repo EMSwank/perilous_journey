@@ -14,8 +14,8 @@ class LinkedList
         if @head == nil
             @head = Node.new(name)
         else 
-            @head.next_node == Node.new(name)
-            require 'pry'; binding.pry
+            @head.next_node = Node.new(name)
+            # require 'pry'; binding.pry
         end 
     end
 
@@ -27,7 +27,7 @@ class LinkedList
         if @counter == 1
             "The #{@head.surname} family."
         else @counter == 2
-            "The #{@head.surname}, followed by the #{@head.next_node.surname} family."
+            "The #{@head.surname} family, followed by the #{@head.next_node.surname} family"
         end 
     end
 end
