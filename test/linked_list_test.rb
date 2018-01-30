@@ -50,7 +50,7 @@ class LinkedListTest < Minitest::Test
         list = LinkedList.new
         list.append("West")        # list.append("Hardy")
 
-        assert_equal "The West family.", list.to_string
+        assert_equal "The West family", list.to_string
     end
 
     def test_it_can_take_more_than_one_family
@@ -81,10 +81,14 @@ class LinkedListTest < Minitest::Test
 
     def test_it_can_insert_a_node
         list = LinkedList.new
-        list.append("Brooks")
-        list.append("Henderson")
-        list.append("McKinney")
+        list.append("brooks")
+        list.append("kevin")
+        list.insert(1, "gary")
+        list.insert(1, "dave")
+        list.append("janice")
 
-        assert_equal Node, list.insert(1, "Lawson")
+# require "pry"; binding.pry
+        assert_equal "dave", list.head.next_node.surname
+        assert_equal "The brooks family, followed by the dave family, followed by the gary family, followed by the kevin family, followed by the janice family", list.to_string
     end 
 end
