@@ -37,5 +37,7 @@ class LinkedList
         end 
     end
 
-    # def 
+    def prepend
+        current_node = @head
+    end
 end
