@@ -81,14 +81,11 @@ class LinkedListTest < Minitest::Test
 
     def test_it_can_insert_a_node
         list = LinkedList.new
-        list.append("brooks")
-        list.append("kevin")
-        list.insert(1, "gary")
-        list.insert(1, "dave")
-        list.append("janice")
+        list.append("Brooks")
+        list.append("Henderson")
+        list.prepend("McKinney")
+        list.insert(1, "Lawson")
 
-# require "pry"; binding.pry
-        assert_equal "dave", list.head.next_node.surname
-        assert_equal "The brooks family, followed by the dave family, followed by the gary family, followed by the kevin family, followed by the janice family", list.to_string
+        assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family, followed by the Henderson family", list.to_string
     end 
 end
