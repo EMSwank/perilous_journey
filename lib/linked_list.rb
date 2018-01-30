@@ -6,12 +6,11 @@ class LinkedList
 
     def initialize
         @head = head
-        @counter = 0
+        # @counter = 0
         # @families = []
     end
 
     def append(name)
-        @counter += 1
         current_node = @head
         if @head.nil?
             @head = Node.new(name)
@@ -24,6 +23,16 @@ class LinkedList
     end
 
     def count
+        current_node = @head
+        if current_node.nil?
+            @counter = 0
+        else 
+            @counter = 1
+            until current_node.next_node.nil?
+                current_node = current_node.next_node
+                @counter += 1
+            end 
+        end 
         @counter
     end
 
@@ -54,12 +63,16 @@ class LinkedList
         # end 
 
     def prepend(name)
-        current_node = Node.new(name)
-        current_node.next_node = @head 
+        if @head.nil? 
+            @head = Node.new(name)
+        else 
+            current_head = @head
+            @head = Node.new(name)
+            @head.next_node = current_head 
+        end 
     end
 
     def insert(index, name)
-        @counter += 1
         current_node = @head
         (index - 1).times { current_node = current_node.next_node }
         new_node = Node.new(name)
