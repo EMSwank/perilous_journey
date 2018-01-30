@@ -37,6 +37,15 @@ class LinkedListTest < Minitest::Test
         assert_equal 1, list.count
     end
 
+    def test_it_counts_more_than_one
+        list = LinkedList.new
+        list.append("Rhodes")
+        list.append("Hardy")
+        list.append("Henderson")
+
+        assert_equal 3, list.count
+    end 
+
     def test_it_returns_a_string
         list = LinkedList.new
         list.append("West")        # list.append("Hardy")
@@ -69,4 +78,13 @@ class LinkedListTest < Minitest::Test
 
         assert_instance_of Node, list.prepend("McKinney")
     end
+
+    def test_it_can_insert_a_node
+        list = LinkedList.new
+        list.append("Brooks")
+        list.append("Henderson")
+        list.append("McKinney")
+
+        assert_equal Node, list.insert(1, "Lawson")
+    end 
 end

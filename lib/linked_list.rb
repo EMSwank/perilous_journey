@@ -41,4 +41,8 @@ class LinkedList
         current_node = Node.new(name)
         current_node.next_node = @head 
     end
+
+    def insert(index, name)
+        current_node = Node.new(name)
+    end
 end
