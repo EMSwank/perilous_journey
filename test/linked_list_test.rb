@@ -52,7 +52,7 @@ class LinkedListTest < Minitest::Test
         assert_equal 2, list.count
     end
 
-    def test_it_returns_a_string_with_two_families
+    def test_it_returns_a_string_with_three_families
         list = LinkedList.new
         list.append("Rhodes")
         list.append("Hardy")
@@ -62,13 +62,11 @@ class LinkedListTest < Minitest::Test
     end
 
     def test_it_prepends_node_to_front_of_list
-
-        skip
         list = LinkedList.new
         list.append("Brooks")
         list.append("Henderson")
         list.prepend("McKinney")
 
-        assert_equal 
+        assert_instance_of Node, list.prepend("McKinney")
     end
 end

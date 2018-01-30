@@ -37,7 +37,8 @@ class LinkedList
         end 
     end
 
-    def prepend
-        current_node = @head
+    def prepend(name)
+        current_node = Node.new(name)
+        current_node.next_node = @head 
     end
 end
