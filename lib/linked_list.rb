@@ -83,4 +83,14 @@ class LinkedList
         to_string.include?(name)
     end
 
+    def pop
+        current_node = @head
+        until current_node.next_node.nil?
+            current_node = current_node.next_node
+        end
+        return "The #{current_node.surname} family has died of dysentery"
+
+
+    end
+
 end

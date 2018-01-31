@@ -111,4 +111,26 @@ class LinkedListTest < Minitest::Test
         refute list.includes?("Chapman")
     end 
 
+    def test_it_pops_off_last_node
+        list = LinkedList.new
+        list.append("McKinnney")
+        list.append("Lawson")
+        list.append("Brooks")
+        list.append("Henderson")
+
+        refute_instance_of list.append("Henderson")
+    end 
+    
+    def test_pop_returns_string_for_popped_node
+        list = LinkedList.new
+        list.append("McKinnney")
+        list.append("Lawson")
+        list.append("Brooks")
+        list.append("Henderson")
+
+        expected = "The Henderson family has died of dysentery"
+
+        assert_equal  expected, list.pop
+    end 
+
 end
