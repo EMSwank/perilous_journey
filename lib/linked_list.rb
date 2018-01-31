@@ -6,8 +6,6 @@ class LinkedList
 
     def initialize
         @head = head
-        # @counter = 0
-        # @families = []
     end
 
     def append(name)
@@ -50,18 +48,6 @@ class LinkedList
         family_roll_call
     end
 
-
-        # if @families.count == 1
-        #     "The #{@head.surname} family."
-        # else 
-        #     family_introduction = "The #{@head.surname} family"
-        #     @families[1..-1].each do |family|
-        #         appended_introduction= "followed by the #{family} family"
-        #         family_introduction = family_introduction + ", " + appended_introduction
-        #     end 
-        #     family_introduction
-        # end 
-
     def prepend(name)
         if @head.nil? 
             @head = Node.new(name)
@@ -78,5 +64,8 @@ class LinkedList
         new_node = Node.new(name)
         new_node.next_node = current_node.next_node
         current_node.next_node = new_node
+    end
+
+    def find
     end
 end

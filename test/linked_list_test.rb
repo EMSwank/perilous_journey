@@ -88,4 +88,16 @@ class LinkedListTest < Minitest::Test
 
         assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family, followed by the Henderson family", list.to_string
     end 
+
+    def test_it_can_find
+        list = LinkedList.new
+        list.append("McKinnney")
+        list.append("Lawson")
+        list.append("Brooks")
+        list.append("Henderson")
+
+        assert_equal "The Brooks family", list.find(2, 1)
+    end 
+
+
 end
