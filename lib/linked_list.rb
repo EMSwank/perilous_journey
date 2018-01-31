@@ -78,4 +78,9 @@ class LinkedList
         end
         new_family_list.to_string
     end
+
+    def includes?(name)
+        to_string.include?(name)
+    end
+
 end
