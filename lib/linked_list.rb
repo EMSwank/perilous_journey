@@ -3,7 +3,8 @@ require './lib/node'
 class LinkedList
     
     attr_reader :head
-
+# define a local private variable that keeps
+# track of the count on append/removal
     def initialize
         @head = head
     end
@@ -48,20 +49,20 @@ class LinkedList
         family_roll_call
     end
 
-    def prepend(name)
+    def prepend(name, supplies)
         if @head.nil? 
-            @head = Node.new(name)
+            @head = Node.new(name, supplies)
         else 
             current_head = @head
-            @head = Node.new(name)
+            @head = Node.new(name, supplies)
             @head.next_node = current_head 
         end 
     end
 
-    def insert(index, name)
+    def insert(index, name, supplies)
         current_node = @head
         (index - 1).times { current_node = current_node.next_node }
-        new_node = Node.new(name)
+        new_node = Node.new(name, supplies)
         new_node.next_node = current_node.next_node
         current_node.next_node = new_node
     end
