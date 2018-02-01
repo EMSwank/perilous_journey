@@ -3,8 +3,6 @@ require './lib/node'
 class LinkedList
     
     attr_reader :head
-# define a local private variable that keeps
-# track of the count on append/removal
     def initialize
         @head = head
     end
@@ -72,10 +70,10 @@ class LinkedList
         current_node = @head 
         index.times { current_node = current_node.next_node}
         new_head = current_node
-        new_family_list.append(new_head.surname, supplies)
+        new_family_list.append(new_head.surname, new_head.supplies)
         (elements - 1).times do
             current_node = current_node.next_node
-            new_family_list.append(current_node.surname, supplies)
+            new_family_list.append(current_node.surname, current_node.supplies)
         end
         new_family_list.to_string
     end
@@ -89,7 +87,7 @@ class LinkedList
         until current_node.next_node.next_node.nil?
             current_node = current_node.next_node
         end
-        final_family_name = current_node.surname
+        final_family_name = current_node.next_node.surname
         current_node.next_node = nil
         "The #{final_family_name} family has died of dysentery"
     end

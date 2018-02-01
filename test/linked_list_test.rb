@@ -101,7 +101,6 @@ class LinkedListTest < Minitest::Test
     end 
 
     def test_includes_p
-        skip
         list = LinkedList.new
         list.append("McKinnney", {"pounds of food" => 300})
         list.append("Lawson", {"pounds of food" => 300})
@@ -113,7 +112,6 @@ class LinkedListTest < Minitest::Test
     end 
 
     def test_pop_returns_string_for_popped_node
-        skip
         list = LinkedList.new
         list.append("McKinnney", {"pounds of food" => 300})
         list.append("Lawson", {"pounds of food" => 300})
@@ -127,7 +125,6 @@ class LinkedListTest < Minitest::Test
     end 
 
     def test_pop_deletes_the_last_wagon_and_tells_why
-        skip
         list = LinkedList.new
         list.append("McKinnney", {"pounds of food" => 300})
         list.append("Lawson", {"pounds of food" => 300})

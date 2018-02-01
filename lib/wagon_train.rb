@@ -7,6 +7,5 @@ class WagonTrain < LinkedList
     def initialize
         @list = LinkedList.new
     end
-
     
 end
