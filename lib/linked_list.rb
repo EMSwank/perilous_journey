@@ -72,10 +72,10 @@ class LinkedList
         current_node = @head 
         index.times { current_node = current_node.next_node}
         new_head = current_node
-        new_family_list.append(new_head.surname)
+        new_family_list.append(new_head.surname, supplies)
         (elements - 1).times do
             current_node = current_node.next_node
-            new_family_list.append(current_node.surname)
+            new_family_list.append(current_node.surname, supplies)
         end
         new_family_list.to_string
     end
