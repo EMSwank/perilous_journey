@@ -6,8 +6,6 @@ class LinkedList
 
     def initialize
         @head = head
-        # @counter = 0
-        # @families = []
     end
 
     def append(name)
@@ -25,15 +23,15 @@ class LinkedList
     def count
         current_node = @head
         if current_node.nil?
-            @counter = 0
+            counter = 0
         else 
-            @counter = 1
+            counter = 1
             until current_node.next_node.nil?
                 current_node = current_node.next_node
-                @counter += 1
+                counter += 1
             end 
         end 
-        @counter
+        counter
     end
 
     def to_string
@@ -49,18 +47,6 @@ class LinkedList
         end 
         family_roll_call
     end
-
-
-        # if @families.count == 1
-        #     "The #{@head.surname} family."
-        # else 
-        #     family_introduction = "The #{@head.surname} family"
-        #     @families[1..-1].each do |family|
-        #         appended_introduction= "followed by the #{family} family"
-        #         family_introduction = family_introduction + ", " + appended_introduction
-        #     end 
-        #     family_introduction
-        # end 
 
     def prepend(name)
         if @head.nil? 
@@ -79,4 +65,34 @@ class LinkedList
         new_node.next_node = current_node.next_node
         current_node.next_node = new_node
     end
+
+    def find(index, elements)
+        new_family_list = LinkedList.new
+        current_node = @head 
+        index.times { current_node = current_node.next_node}
+        new_head = current_node
+        new_family_list.append(new_head.surname)
+        (elements - 1).times do
+            current_node = current_node.next_node
+            new_family_list.append(current_node.surname)
+        end
+        new_family_list.to_string
+    end
+
+    def includes?(name)
+        to_string.include?(name)
+    end
+
+    def pop
+        current_node = @head
+        until current_node.next_node.next_node.nil?
+            current_node = current_node.next_node
+        end
+        final_family_name = current_node.surname
+        current_node.next_node = nil
+        "The #{final_family_name} family has died of dysentery"
+
+
+    end
+
 end

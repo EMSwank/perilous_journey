@@ -88,4 +88,51 @@ class LinkedListTest < Minitest::Test
 
         assert_equal "The McKinney family, followed by the Lawson family, followed by the Brooks family, followed by the Henderson family", list.to_string
     end 
+
+    def test_it_can_find
+        list = LinkedList.new
+        list.append("McKinnney")
+        list.append("Lawson")
+        list.append("Brooks")
+        list.append("Henderson")
+
+        assert_equal "The Brooks family", list.find(2, 1)
+        assert_equal "The Lawson family, followed by the Brooks family, followed by the Henderson family", list.find(1, 3)
+    end 
+
+    def test_includes_p
+        list = LinkedList.new
+        list.append("McKinnney")
+        list.append("Lawson")
+        list.append("Brooks")
+        list.append("Henderson")
+
+        assert list.includes?("Brooks")
+        refute list.includes?("Chapman")
+    end 
+
+    def test_pop_returns_string_for_popped_node
+        list = LinkedList.new
+        list.append("McKinnney")
+        list.append("Lawson")
+        list.append("Brooks")
+        list.append("Henderson")
+
+        expected = "The Henderson family has died of dysentery"
+
+        assert_equal  expected, list.pop
+        assert_equal 3, list.count
+    end 
+
+        def test_pop_returns_string_for_popped_node
+        list = LinkedList.new
+        list.append("McKinnney")
+        list.append("Lawson")
+        list.append("Brooks")
+        list.append("Henderson")
+
+        list.pop
+        assert_equal 3, list.count
+    end 
+
 end
