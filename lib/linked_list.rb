@@ -91,8 +91,6 @@ class LinkedList
         final_family_name = current_node.surname
         current_node.next_node = nil
         "The #{final_family_name} family has died of dysentery"
-
-
     end
 
 end
