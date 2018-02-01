@@ -23,15 +23,15 @@ class LinkedList
     def count
         current_node = @head
         if current_node.nil?
-            @counter = 0
+            counter = 0
         else 
-            @counter = 1
+            counter = 1
             until current_node.next_node.nil?
                 current_node = current_node.next_node
-                @counter += 1
+                counter += 1
             end 
         end 
-        @counter
+        counter
     end
 
     def to_string
