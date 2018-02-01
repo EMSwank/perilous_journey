@@ -8,15 +8,15 @@ class LinkedList
         @head = head
     end
 
-    def append(name)
+    def append(name, supplies)
         current_node = @head
         if @head.nil?
-            @head = Node.new(name)
+            @head = Node.new(name, supplies)
         else 
             until current_node.next_node.nil?
                 current_node = current_node.next_node
             end
-        current_node.next_node = Node.new(name)
+        current_node.next_node = Node.new(name, supplies)
         end 
     end
 
