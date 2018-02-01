@@ -85,10 +85,12 @@ class LinkedList
 
     def pop
         current_node = @head
-        until current_node.next_node.nil?
+        until current_node.next_node.next_node.nil?
             current_node = current_node.next_node
         end
-        return "The #{current_node.surname} family has died of dysentery"
+        final_family_name = current_node.surname
+        current_node.next_node = nil
+        "The #{final_family_name} family has died of dysentery"
 
 
     end
